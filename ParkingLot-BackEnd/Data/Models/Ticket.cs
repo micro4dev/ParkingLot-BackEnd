@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ParkingLot.BackEnd.Data.Models;
 
+[Table("Ticket")]
 public class Ticket
 {
     [Key]
@@ -29,21 +30,21 @@ public class Ticket
     public string HoraSalida { get; set; }
 
     [Required]
+    [ForeignKey(nameof(Vehiculo))]
     public int VehiculoId { get; set; }
 
-    [ForeignKey(nameof(Vehiculo))]
     public Vehiculo Vehiculo { get; set; }
 
     [Required]
+    [ForeignKey(nameof(Persona))]
     public int PersonaId { get; set; }
 
-    [ForeignKey(nameof(Persona))]
     public Persona Persona { get; set; }
 
     [Required]
+    [ForeignKey(nameof(Tarifa))]
     public int TarifaId { get; set; }
 
-    [ForeignKey(nameof(Tarifa))]
     public Tarifa Tarifa { get; set; }
 
     [Column(TypeName = "decimal(18,2)")]

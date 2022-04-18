@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace ParkingLot.BackEnd.Data.Models;
-
+[Table("Persona")]
 public class Persona
 {
     [Key]
@@ -15,9 +15,9 @@ public class Persona
     [MaxLength(150), MinLength(50)]
     public string Nombre { get; set; }
 
+    [ForeignKey(nameof(TipoDocumentoEntidad))]
     public int TipoDocumentoId { get; set; }
 
-    [ForeignKey(nameof(TipoDocumentoEntidad))]
     public TipoDocumentoEntidad TipoDocumento { get; set; }
 
     [MaxLength(25), MinLength(8)]

@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ParkingLot.BackEnd.Data.Models;
 
+[Table("TipoDocumentoEntidad")]
 public class TipoDocumentoEntidad
 {
     [Key]

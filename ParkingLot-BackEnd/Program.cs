@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using ParkingLot.BackEnd;
+using ParkingLot.BackEnd.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,23 @@ builder.Services.AddHealthChecks()
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+
+// Add ApplicationDbContext and SQL Server support
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    )
+);
+
 builder.Services.AddSwaggerGen();
+
+// Add ApplicationDbContext and SQL Server support
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    )
+);
 
 var app = builder.Build();
 

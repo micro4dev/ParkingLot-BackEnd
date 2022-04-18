@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ParkingLot.BackEnd.Data.Models;
 
+[Table("Tarifa")]
 public class Tarifa
 {
     [Key]
