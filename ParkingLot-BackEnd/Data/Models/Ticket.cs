@@ -31,7 +31,7 @@ public class Ticket
 
     [Required]
     [ForeignKey(nameof(Vehiculo))]
-    public int VehiculoId { get; set; }
+    public int? VehiculoId { get; set; }
 
     public Vehiculo Vehiculo { get; set; }
 
